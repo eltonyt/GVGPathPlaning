@@ -3,11 +3,8 @@
 ## General Idea:
 - Use OpenCV2 to read the image, and detect Contour of all abstacles(Color in black). For each obstacle, detect vertices it. (Ref: [1])
 - Scan the whole image, and find the distance between the freespace pixel(Color in white) and all line segment. Distance is calculated using the coordinates of the pixel and vertices. (Ref: [2])
-
 If there are distance to 2 line segments(these 2 line segments have to be from different obstacles) that are equal and the distance is the minimum, which means that the pixel is the mid point to the closest 2 obstacles, then this point is a GVG point and will be added to the list.
-
 (Note: I used a threshold as 1 in when comparing the distance. If the difference between 2 rounded distance is within 1, then I say they are equal)
-
 - For path planing, I used A* algorithm (Ref: [3]). I will search the path for 3 line segments, including start point to GVG map, GVG map to end point, and the path on GVG map. 
 
 ## Planing Time:
